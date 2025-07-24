@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume-Based Job Recommender</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #5b5f97;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #4a4a4a;
+        }
+        textarea, input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #d3d3d3;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            resize: vertical;
+        }
+        button {
+            background: #5b5f97;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #4a4e85;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        .job-tips {
+            margin-top: 10px;
+            font-size: 15px;
+            color: #6b6b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume-Based Job Recommender 🔍</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="resume">📄 Upload Your Resume (PDF):</label>
+            <input type="file" name="resume" accept=".pdf" required>
+
+            <label for="jd">📝 Paste Job Description:</label>
+            <textarea name="jd" rows="6" placeholder="Paste job description here..." required></textarea>
+
+            <button type="submit">🚀 Analyze & Recommend Jobs</button>
+        </form>
+
+        <div class="job-tips">
+            💡 Tip: The more detailed your job description is, the better suggestions you'll get!
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 Resume Recommender | Made by Sowmya 💼
+    </div>
+</body>
+</html>

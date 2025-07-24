@@ -1,0 +1,76 @@
+<!-- templates/results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analysis Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            padding: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #4A90E2;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .match {
+            background-color: #e3fce3;
+            padding: 10px;
+            border-left: 4px solid green;
+        }
+        .missing {
+            background-color: #ffe9e9;
+            padding: 10px;
+            border-left: 4px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Match Results</h1>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Phone:</strong> {{ phone }}</p>
+        <p><strong>Skills:</strong> {{ skills | join(', ') }}</p>
+        <p><strong>Match Score:</strong> {{ match_score }}%</p>
+
+        <div class="match">
+            <strong>Matched Skills:</strong>
+            <ul>
+                {% for skill in matched_skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="missing">
+            <strong>Missing Skills:</strong>
+            <ul>
+                {% for skill in missing_skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <h3>Suggested Jobs:</h3>
+        <ul>
+            {% for job in suggested_jobs %}
+                <li><a href="{{ job.url }}" target="_blank">{{ job.title }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <h3>GPT Suggestions:</h3>
+        <p>{{ feedback }}</p>
+    </div>
+</body>
+</html>
